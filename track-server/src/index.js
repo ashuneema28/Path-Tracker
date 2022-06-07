@@ -1,14 +1,17 @@
 require('./models/User')
+require('./models/Track')
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const bodyParser = require('body-parser');
+const trackRoutes = require('./routes/trackRoutes');
 const requireAuth = require('./middlewares/requireAuth');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 
 const mongoUri = 'mongodb+srv://admin:12345@path-tracker-cluster.jtiwi.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoUri);
