@@ -1,9 +1,12 @@
+require('./models/User')
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(authRoutes);
 
 const mongoUri = 'mongodb+srv://admin:12345@path-tracker-cluster.jtiwi.mongodb.net/?retryWrites=true&w=majority';
