@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
+
+app.use(authRoutes);
 
 const mongoUri = 'mongodb+srv://admin:12345@path-tracker-cluster.jtiwi.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoUri);
